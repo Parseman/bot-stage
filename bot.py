@@ -6,6 +6,7 @@ from datetime import time
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
+from keep_alive import keep_alive
 
 # -----------------------------
 # CONFIGURATION
@@ -230,4 +231,5 @@ async def on_ready():
     if not recherche_quotidienne.is_running():
         recherche_quotidienne.start()
 
+keep_alive()  # <--- Ajoute cette ligne ici
 bot.run(TOKEN)
